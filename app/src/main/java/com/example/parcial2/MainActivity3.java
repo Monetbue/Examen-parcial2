@@ -11,9 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity3 extends AppCompatActivity {
-    EditText comprarb;
+    EditText comprarb,preciob;
     Button  pagarb;
     Button menupizza;
+
 
     SharedPreferences preferences;
 
@@ -24,6 +25,7 @@ public class MainActivity3 extends AppCompatActivity {
         menupizza=(Button) findViewById(R.id.menupizza);
         pagarb = (Button) findViewById(R.id.pagarb);
         comprarb = (EditText) findViewById(R.id.comprarb);
+        preciob = (EditText) findViewById(R.id.preciob);
 
 
 
@@ -32,10 +34,13 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String _comprarb="";
+                String _preciob="";
                 _comprarb = comprarb.getText().toString();
-                GuardarDatos(_comprarb);
+                _preciob = preciob.getText().toString();
+                GuardarDatos(_comprarb,_preciob);
                 Intent intent = new Intent(MainActivity3.this,MainActivity4.class);
                 //intent.putExtra("Comprarb",_comprarb);
+                //intent.putExtra("Preciob",_preciob);
                 startActivity(intent);
             }
         });
@@ -44,18 +49,22 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String _comprarb="";
+                String _preciob="";
                 _comprarb = comprarb.getText().toString();
-                GuardarDatos(_comprarb);
+                _preciob = preciob.getText().toString();
+                GuardarDatos(_comprarb,_preciob);
                 Intent intent = new Intent(MainActivity3.this,MainActivity5.class);
                 //intent.putExtra("Comprarb",_comprarb);
+                //intent.putExtra("Preciob",_preciob);
                 startActivity(intent);
             }
         });
     }
-    private void GuardarDatos(String comprarb) {
+    private void GuardarDatos(String comprarb, String preciob) {
         preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("Bebida",comprarb);
+        editor.putString("Preciob",preciob);
         editor.commit();
     }
 

@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity4 extends AppCompatActivity {
-    EditText comprarp;
+    EditText comprarp, preciop;
     Button pagarp;
     Button menubebida;
     SharedPreferences preferences;
@@ -23,6 +23,7 @@ public class MainActivity4 extends AppCompatActivity {
         menubebida=(Button) findViewById(R.id.menubebida);
         pagarp = (Button) findViewById(R.id.pagarp);
         comprarp = (EditText) findViewById(R.id.comprarp);
+        preciop = (EditText) findViewById(R.id.preciop);
 
 
 
@@ -30,10 +31,13 @@ public class MainActivity4 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String _comprarp="";
+                String _preciop="";
                 _comprarp = comprarp.getText().toString();
-                GuardarDatos(_comprarp);
-                Intent intent = new Intent(MainActivity4.this,MainActivity3.class);
+                _preciop = preciop.getText().toString();
+                GuardarDatos(_comprarp,_preciop);
+                Intent intent = new Intent(MainActivity4.this,MainActivity5.class);
                 //intent.putExtra("Comprarp",_comprarp);
+                //intent.putExtra("Preciop",_preciop);
                 startActivity(intent);
             }
         });
@@ -42,18 +46,23 @@ public class MainActivity4 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String _comprarp="";
+                String _preciop="";
                 _comprarp = comprarp.getText().toString();
-                GuardarDatos(_comprarp);
+                _preciop = preciop.getText().toString();
+                GuardarDatos(_comprarp,_preciop);
                 Intent intent = new Intent(MainActivity4.this,MainActivity5.class);
                 //intent.putExtra("Comprarp",_comprarp);
+                //intent.putExtra("Preciop",_preciop);
                 startActivity(intent);
             }
         });
+
     }
-    private void GuardarDatos(String comprarp) {
-        preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+    private void GuardarDatos(String comprarp, String preciop) {
+        preferences = getSharedPreferences("credenciales",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("Pizza",comprarp);
+        editor.putString("Preciop",preciop);
         editor.commit();
     }
 }

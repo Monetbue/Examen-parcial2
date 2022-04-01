@@ -1,5 +1,6 @@
 package com.example.parcial2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity5 extends AppCompatActivity {
     TextView mensaje1;
@@ -32,9 +34,16 @@ public class MainActivity5 extends AppCompatActivity {
             String dato2 = extras.getString("Direccion");
             String dato3 = extras.getString("Pizza");
             String dato4 = extras.getString("Bebida");
+            String dato5 = extras.getString("Preciob");
+            String dato6 = extras.getString("Preciop");
+            double valor1 = Double.parseDouble(dato5);
+            double valor2 = Double.parseDouble(dato6);
+            double nfinal= valor1 +valor2;
 
-            if(!dato1.equals("")&&!dato2.equals("")&&!dato3.equals("")&&!dato4.equals("")){
-                mensaje1.setText("Estimado "+dato1+" con direccion: " +dato2+ " has seleccionado la pizza" +dato3+ " con la bebida " +dato4+ " el total de la compra es: ");
+
+            if(!dato1.equals("")&&!dato2.equals("")&&!dato3.equals("")&&!dato4.equals("")&&!dato5.equals("")&&!dato6.equals("")){
+                mensaje1.setText("Estimado "+dato1+" con direccion: " +dato2+ " has seleccionado la pizza " +dato3+ " con la bebida " +dato4+ " el total de la compra es: " +nfinal);
+
             }
             else
                 mensaje1.setText("Los datos que enviaste son incorrectos");
@@ -44,6 +53,9 @@ public class MainActivity5 extends AppCompatActivity {
             mensaje1.setText("No se envio ningun extra en el intent");
             LeerDatos();
         }
+        
+
+
 
         regresar1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,16 +72,23 @@ public class MainActivity5 extends AppCompatActivity {
         String dato2 = preferences.getString("Direccion","No hay dato");
         String dato3 = preferences.getString("Pizza","No hay dato");
         String dato4 = preferences.getString("Bebida","No hay dato");
+        String dato5 = preferences.getString("Preciob","No hay dato");
+        String dato6 = preferences.getString("Preciop","No hay dato");
+        double valor1 = Double.parseDouble(dato5);
+        double valor2 = Double.parseDouble(dato6);
+        double nfinal= valor1 +valor2;
 
 
 
-        if(!dato1.equals("")&&!dato2.equals("")&&!dato3.equals("")&&!dato4.equals(""))
-            mensaje1.setText("Estimado "+dato1+" con direccion: "+dato2+"has seleccionado la pizza" +dato3+"con la bebida"+dato4+ "el total de la compra es: ");
+        if(!dato1.equals("")&&!dato2.equals("")&&!dato3.equals("")&&!dato4.equals("")&&!dato5.equals("")&&!dato6.equals(""))
+            mensaje1.setText("Estimado "+dato1+" con direccion: "+dato2+" has seleccionado la pizza " +dato3+" con la bebida "+dato4+ "el total de la compra es: " +nfinal);
+
         else
             mensaje1.setText("Los datos que enviaste son incorrectos nombre: "+dato1+" direccion: "+dato2+ "Pizza: " +dato3+ "Bebida: "+dato4);
 
 
     }
+
 
 
 }
