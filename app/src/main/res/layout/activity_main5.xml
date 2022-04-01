@@ -28,7 +28,19 @@
         android:layout_marginEnd="120dp"
         android:text="Volver" />
 
-
+    <TextView
+        android:id="@+id/mensaje2"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mensaje1"
+        android:layout_alignStart="@+id/mensaje1"
+        android:layout_alignEnd="@+id/mensaje1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginEnd="0dp"
+        android:text="Gracias por comprar con nosotros"
+        android:textSize="30dp" />
 
 
 </RelativeLayout>
