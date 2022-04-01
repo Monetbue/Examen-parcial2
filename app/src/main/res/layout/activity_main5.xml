@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity5"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/mensaje1"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:text="mensaje" />
+
+
+    <EditText
+        android:id="@+id/total"
+        android:layout_width="101dp"
+        android:layout_height="69dp"
+        android:layout_below="@id/mensaje1"
+        android:hint="total" />
+
+    <Button
+        android:id="@+id/regresar1"
+        android:layout_width="103dp"
+        android:layout_height="54dp"
+        android:layout_below="@+id/mensaje1"
+        android:layout_alignStart="@+id/mensaje1"
+        android:layout_alignEnd="@+id/mensaje1"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="207dp"
+        android:layout_marginEnd="120dp"
+        android:text="Volver" />
+
+
+
+
+
+</RelativeLayout>
